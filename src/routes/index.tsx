@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Link } from "@tanstack/react-router";
+import { useState } from "react";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -93,6 +94,8 @@ const roles = [
 ];
 
 function Index() {
+  const [isPlaying, setIsPlaying] = useState(false);
+
   return (
     <>
       {/* HERO */}
@@ -135,21 +138,34 @@ function Index() {
       {/* MEET TALENT */}
       <section className="mx-auto max-w-5xl px-4 py-20 text-center sm:px-6">
         <h2 className="text-2xl font-bold sm:text-3xl">Meet Our Global Talent</h2>
-        <div className="relative mx-auto mt-8 aspect-[16/9] max-w-3xl overflow-hidden rounded-2xl shadow-xl">
-          <img
-            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1400&h=800&fit=crop"
-            alt="Global remote team collaborating"
-            className="absolute inset-0 h-full w-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-br from-[var(--brand-navy)]/60 to-[var(--brand-teal)]/40" />
-          <button
-            aria-label="Play video"
-            className="absolute inset-0 m-auto grid h-16 w-16 place-items-center rounded-full bg-white/95 text-primary shadow-xl transition hover:scale-105"
-          >
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M8 5v14l11-7z" />
-            </svg>
-          </button>
+        <div className="relative mx-auto mt-8 aspect-[16/9] max-w-3xl overflow-hidden rounded-2xl shadow-xl bg-black">
+          {isPlaying ? (
+            <video
+              src="/global-talent.mp4"
+              className="absolute inset-0 h-full w-full object-cover"
+              controls
+              autoPlay
+              playsInline
+            />
+          ) : (
+            <>
+              <img
+                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1400&h=800&fit=crop"
+                alt="Global remote team collaborating"
+                className="absolute inset-0 h-full w-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-br from-[var(--brand-navy)]/60 to-[var(--brand-teal)]/40" />
+              <button
+                onClick={() => setIsPlaying(true)}
+                aria-label="Play video"
+                className="absolute inset-0 m-auto grid h-16 w-16 place-items-center rounded-full bg-white/95 text-primary shadow-xl transition hover:scale-105 cursor-pointer z-10"
+              >
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              </button>
+            </>
+          )}
         </div>
       </section>
 
@@ -329,18 +345,3 @@ function Index() {
             className="mx-auto aspect-[3/4] w-full max-w-xs rounded-2xl object-cover shadow-2xl"
           />
         </div>
-      </section>
-
-      {/* CTA */}
-      <section className="mx-auto max-w-3xl px-4 py-20 text-center sm:px-6">
-        <h2 className="text-3xl font-bold sm:text-4xl">Ready to work together?</h2>
-        <Link
-          to="/start-hiring"
-          className="mt-6 inline-block rounded-full bg-primary px-7 py-3 text-base font-semibold text-primary-foreground"
-        >
-          Start Hiring
-        </Link>
-      </section>
-    </>
-  );
-}

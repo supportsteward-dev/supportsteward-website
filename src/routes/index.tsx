@@ -192,32 +192,6 @@ function Index() {
         </div>
       </section>
 
-      {/* SECURE BY DESIGN */}
-      <section className="mx-auto max-w-4xl px-4 py-20 text-center sm:px-6">
-        <h2 className="text-3xl font-bold sm:text-4xl">Support Steward is Secure by Design</h2>
-        <p className="mt-4 text-muted-foreground">
-          Trust and compliance are baked into every engagement: SOC 2 controls, contractual NDAs,
-          and country-specific privacy review.
-        </p>
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-          <span className="rounded-full border border-border px-4 py-2 text-xs font-semibold tracking-wider">
-            SOC 2
-          </span>
-          <span className="rounded-full border border-border px-4 py-2 text-xs font-semibold tracking-wider">
-            GDPR
-          </span>
-          <span className="rounded-full border border-border px-4 py-2 text-xs font-semibold tracking-wider">
-            ISO 27001
-          </span>
-        </div>
-        <Link
-          to="/start-hiring"
-          className="mt-8 inline-block rounded-full bg-secondary px-6 py-3 text-sm font-semibold text-secondary-foreground"
-        >
-          Start Hiring
-        </Link>
-      </section>
-
       {/* DID YOU KNOW */}
       <section className="mx-auto grid max-w-6xl gap-12 px-4 py-12 sm:px-6 lg:grid-cols-2 lg:items-center">
         <div>
